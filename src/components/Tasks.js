@@ -1,6 +1,6 @@
 import React from "react";
-
-function Tasks(props) {
+import {connect } from 'react-redux';
+const Tasks=(props)=> {
   return ( <div className="col-lg-3 col-md-6">
                         <div className="panel panel-green">
                             <div className="panel-heading">
@@ -9,7 +9,7 @@ function Tasks(props) {
                                         <i className="fa fa-tasks fa-5x"></i>
                                     </div>
                                     <div className="col-xs-9 text-right">
-                                        <div className="huge">{props.newTasks}</div>
+                                        <div className="huge">{props.tasks}</div>
                                         <div>New Tasks!</div>
                                     </div>
                                 </div>
@@ -23,7 +23,15 @@ function Tasks(props) {
                             </a>
                         </div>
                     </div>);
+            
 }
+const mapStateToProps=(state)=>{
+    return{
+      tasks:state.newTasks
+    }
+   }
+    
+   const TasksContainer= connect(mapStateToProps)(Tasks);
+   export default TasksContainer;
 
-export default Tasks;
 

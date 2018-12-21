@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 
-function Tickets(props) {
+const Tickets=(props)=> {
   return(
     <div className="col-lg-3 col-md-6">
       <div className="panel panel-red">
@@ -26,12 +26,11 @@ function Tickets(props) {
       </div>
     </div>);
 }
-const mapStateToProps = function (state) {
+const mapStateToProps = (state)=> {
   return {
     tickets: state.tickets
-  };
-};
-export default (Tickets);
-// export default connect(mapStateToProps,null)(Tickets);
-
+  }
+}
+const TicketsContainer= connect(mapStateToProps)(Tickets);//name of component
+export default TicketsContainer;
 
